@@ -1,0 +1,60 @@
+<div class="main-login">
+  <div class="card shadow login-page">
+    <div class="info">
+      <h1 class="login-header">
+        Welcome to the UOL Clinical Data Center
+      </h1>
+      <h5>Here you can find your health infomation </h5>
+      <img src="assets/img/login.jpg" />
+    </div>
+    <div class="shadow card login-card">
+      <div class="card-body">
+        <form class="login-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="login-input">
+            <label class="form-label">Email</label>
+            <input
+              type="text"
+              formControlName="email"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': isSubmitted && formEmail.errors }"
+              (focus)="reFocus()"
+            />
+            <div *ngIf="isSubmitted && formEmail.errors" class="invalid-feedback">
+              <div *ngIf="isSubmitted && formEmail.errors['required']">
+                Email address is required
+              </div>
+              <div *ngIf="isSubmitted && formEmail.errors['pattern']">
+                This is not a proper email address
+              </div>
+            </div>
+          </div>
+          <div class="login-input">
+            <label class="form-label">Password</label>
+            <input
+              type="password"
+              formControlName="password"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': isSubmitted && formPassword.errors }"
+              (focus)="reFocus()"
+            />
+            <div
+              *ngIf="isSubmitted && formPassword.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="isSubmitted && formPassword.errors['required']">
+                Password is required
+              </div>
+            </div>
+          </div>
+          <div class="submit-button">
+            <button [disabled]="isSubmitted && formBody.invalid" class="btn btn-primary">Login</button>
+            <div class="invalid-submit" *ngIf="isSubmitted && accountNotFound">
+              Invalid email or password
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

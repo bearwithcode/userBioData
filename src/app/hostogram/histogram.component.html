@@ -1,0 +1,123 @@
+<div class="histo-body">
+  <div class="main-histo">
+    <div class="card top-menu">
+      <div class="uol-icon"><img src="assets/img/uol.jpg" /></div>
+
+      <div class="logout-button">
+        <button class="btn btn-secondary" (click)="logout()">Logout</button>
+      </div>
+    </div>
+    <div class="top-section">
+      <div class="card shadow user-profile">
+        <div>
+          <img src="assets/img/profile.jpg" />
+        </div>
+        <div class="basic-infos">
+          <h4>My Blood Pressure</h4>
+          <div>Age : 27</div>
+          <div>City : Luxembourg City</div>
+        </div>
+      </div>
+      <div class="card shadow control-panel">
+        <div class="alert alert-warning reminding" role="alert">
+          Please press enter or click white place after you changing the poll
+          interval
+        </div>
+        <div class="poll-input">
+          <label for="poll">Poll Interval:</label>
+          <div>
+            <input
+              id="poll"
+              class="form-control"
+              type="number"
+              [(ngModel)]="pollInterval"
+              (change)="pollIntervalChanged()"
+            />
+            <div class="post-fix">(s)</div>
+          </div>
+        </div>
+        <div class="alert alert-warning reminding" role="alert">
+          Can use keyboard arrows or mouse to control the range,when min value
+          is greater than max value will reset the range back to 80 to 180,
+          should always be(min < max)
+        </div>
+        <div>
+          <label for="minRange" class="form-label">Min Value(80-180):</label>
+          <div>
+            <input
+              type="range"
+              class="form-range"
+              min="80"
+              max="180"
+              step="1"
+              id="minRange"
+              [(ngModel)]="minValue"
+              (change)="minmaxChanged()"
+            /><div class="post-fix">{{ minValue }}</div>
+          </div>
+        </div>
+        <div>
+          <label for="maxRange" class="form-label">Max Value(80-180):</label>
+          <div>
+            <input
+              type="range"
+              class="form-range"
+              min="80"
+              max="180"
+              step="1"
+              id="maxRange"
+              [(ngModel)]="maxValue"
+              (change)="minmaxChanged()"
+            /><div class="post-fix">{{ maxValue }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="buttom-section">
+      <div class="card shadow">
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              [ngClass]="{ active: isRawDisplay }"
+              aria-current="page"
+              href="javascript:void(null);"
+              (click)="switchPanel(true)"
+              >Raw Datum</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              [ngClass]="{ active: !isRawDisplay }"
+              href="javascript:void(null);"
+              (click)="switchPanel(false)"
+              >Logarithmic Datum</a
+            >
+          </li>
+        </ul>
+        <div class="card-body diagram-body">
+          <h2>My Blood Pressure Histogram</h2>
+          <div *ngIf="isRawDisplay">
+            <div *ngIf="bloodPressure$ | async as bp">
+              <app-histogram-diagram
+                [frequencyNumber]="frequencyNumber"
+                [bloodPressureRange]="bloodPressureRangeRaw"
+                [frequency]="calRawBucketValues(bp)"
+              ></app-histogram-diagram>
+            </div>
+          </div>
+          <div *ngIf="!isRawDisplay">
+            <div *ngIf="bloodPressure$ | async as bp">
+              <app-histogram-diagram
+                [frequencyNumber]="frequencyNumber"
+                [bloodPressureRange]="bloodPressureRangeLogarithmic"
+                [frequency]="calLogBucketValues(bp)"
+              ></app-histogram-diagram>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="diagram">
+  <div>
+    Frequency
+    <div class="y-axis">
+      <div class="each-y" *ngFor="let each of frequencyNumber">
+        {{each}}
+      </div>
+    </div>
+  </div>
+  <div [ngStyle]="caculateBarHeight(col)" class="bar" *ngFor="let col of bloodPressureRange">
+    <div class="freq-num" *ngIf="getFrequency(col) !== 0">{{getFrequency(col)}}</div>
+  </div>
+</div>
+<div class="x-axis">
+  <div class="each-x">0</div>
+  <div class="each-x" *ngFor="let col of bloodPressureRange">
+    {{col}}
+  </div>
+</div>

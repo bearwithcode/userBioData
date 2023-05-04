@@ -1,0 +1,42 @@
+.diagram{
+  display: flex;
+  flex-direction: row;
+  height: 45vh;
+  background-color: #c3c3c3;
+  align-items: flex-end;
+
+  .bar{
+    width: 5vw;
+    background-color: #6b6792;
+    border: 1px solid;
+    display: flex;
+    justify-content: center;
+
+    .freq-num{
+      position: relative;
+      top:-5vh;
+    }
+  }
+
+  .y-axis{
+    display: flex;
+    flex-direction: column;
+    width: 4.5vw;
+    border-right: 1px solid;
+    .each-y{
+      height: 8vh;
+      align-self: end;
+      border-top: black solid 1px;
+    }
+  }
+}
+
+.x-axis{
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  left: 4.5vw;
+  .each-x{
+    width: 4.9vw;
+  }
+}
