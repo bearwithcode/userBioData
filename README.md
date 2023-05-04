@@ -1,5 +1,5 @@
 # userBioData
-This web app is to demonstrate the blood pressure date to clinical study participants
+This web app is to demonstrate the blood pressure data to clinical study participants
 
 # How to run the app
 - **npm install** to install all the dependencies
