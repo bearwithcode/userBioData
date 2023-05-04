@@ -2,7 +2,6 @@
 This web app is to demonstrate the blood pressure date to clinical study participants
 
 # How to run the app
-- go in the **my-clinical-data-app** folder
 - **npm install** to install all the dependencies
 - **npm start** to start the app
 - there are two users in the fake database to log in
