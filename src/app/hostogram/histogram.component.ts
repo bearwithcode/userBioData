@@ -22,6 +22,7 @@ import { Router } from '@angular/router';
 })
 export class HistogramComponent implements OnInit {
   token!: string;
+  email!: string;
   isRawDisplay = true;
   bloodPressureRangeRaw!: number[];
   bloodPressureRangeLogarithmic!: number[];
@@ -50,6 +51,7 @@ export class HistogramComponent implements OnInit {
     this.bloodPressureRangeLogarithmic = this.generateLogarithmicRange();
 
     this.token = this.loginService.LoginToken;
+    this.email = this.loginService.Email;
 
     this.bloodPressureBaseValues$ = this.pollIntervalSub$.pipe(
       switchMap((val) =>
@@ -160,6 +162,7 @@ export class HistogramComponent implements OnInit {
 
   logout() {
     this.loginService.LoginToken = '';
+    this.loginService.Email = '';
     this.router.navigateByUrl('');
   }
 }

@@ -10,6 +10,7 @@ export class LoginService {
   //due to this is a not a big app, so I just store this in a service, otherwise I will use local storage
   // or ngRx store
   private loginToken: string = "";
+  private email: string = ""
 
   constructor() { }
 
@@ -19,5 +20,13 @@ export class LoginService {
 
   get LoginToken(){
     return this.loginToken;
+  }
+
+  set Email(email: string){
+    this.email = email;
+  }
+
+  get Email(){
+    return this.email;
   }
 }

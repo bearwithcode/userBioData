@@ -72,6 +72,7 @@ export class LoginComponent implements OnInit {
             this.accountNotFound = false;
             let token = data[0].token || '';
             this.loginService.LoginToken = token;
+            this.loginService.Email = data[0].email;
             this.router.navigateByUrl('histogram');
           }
         },
