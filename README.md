@@ -8,5 +8,5 @@ This web app is to demonstrate the blood pressure data to clinical study partici
 -     email:victor@gmail.com | password:123b
 -     email:tove@gmail.com | password:345a
 - after log in, you will see the user histogram
-- figma UI/UX design link https://www.figma.com/file/621RVzZ0E322JMnwaKVXlt/wired-frame?node-id=19-15
+- This is the *[figma link]([https://www.markdownguide.org](https://www.figma.com/file/621RVzZ0E322JMnwaKVXlt/wired-frame?node-id=19-15))*.
 
