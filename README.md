@@ -1,5 +1,6 @@
 # userBioData
-This web app is to demonstrate the blood pressure data to clinical study participants
+- This Angular web app is to demonstrate the blood pressure data to clinical study participants
+- please make sure npm installed
 
 # How to run the app
 - **npm install** to install all the dependencies
